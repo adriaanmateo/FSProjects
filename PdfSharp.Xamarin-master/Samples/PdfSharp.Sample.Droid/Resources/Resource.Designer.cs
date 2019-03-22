@@ -27,6 +27,7 @@ namespace PdfSharp.Sample.Droid
 		public static void UpdateIdValues()
 		{
 			global::PdfSharp.Resource.String.ApplicationName = global::PdfSharp.Sample.Droid.Resource.String.ApplicationName;
+			global::PdfSharp.Resource.String.Hello = global::PdfSharp.Sample.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -2378,14 +2379,17 @@ namespace PdfSharp.Sample.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050021
-			public const int AbrirPdf = 2131034145;
-			
-			// aapt resource value: 0x7f05001f
-			public const int ApplicationName = 2131034143;
+			// aapt resource value: 0x7f050022
+			public const int AbrirPdf = 2131034146;
 			
 			// aapt resource value: 0x7f050020
-			public const int GeneratePdf = 2131034144;
+			public const int ApplicationName = 2131034144;
+			
+			// aapt resource value: 0x7f050021
+			public const int GeneratePdf = 2131034145;
+			
+			// aapt resource value: 0x7f05001f
+			public const int Hello = 2131034143;
 			
 			// aapt resource value: 0x7f050000
 			public const int abc_action_bar_home_description = 2131034112;
