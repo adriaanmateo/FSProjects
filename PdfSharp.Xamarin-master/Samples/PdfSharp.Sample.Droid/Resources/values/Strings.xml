@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="GeneratePdf">Generate Pdf</string>
+  <string name="AbrirPdf">Abrir Pdf</string>
+    <string name="ApplicationName">FSPdf</string>
+</resources>
