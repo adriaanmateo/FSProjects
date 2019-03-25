@@ -18,7 +18,6 @@ using Android.Support.V7.App;
 using Android.Views;
 using System.Reflection;
 using System.Collections;
-using System;
 
 namespace PdfSharp.Sample.Droid
 {
@@ -79,12 +78,13 @@ namespace PdfSharp.Sample.Droid
                 //Declarar pagina y añadirla al pdf
                 var page = document.AddPage();
                 
-                //Declarar xgraphics de la pagina y los asigno a la pagina
+                //Declarar xgraphics de la página y los asigno a la página
                 var gfx = XGraphics.FromPdfPage(page);
 
                 //Declarar diferentes xfont
-                var font = new XFont("sans-serif", 20);
-                var fontBold = new XFont("sans-serif", 20, XFontStyle.Bold);
+                var font = new XFont("sans-serif", 12);
+                var fontBold = new XFont("sans-serif", 12, XFontStyle.Bold);
+                var fontBoldTitol = new XFont("sans-serif", 20, XFontStyle.Bold);
                 var fontItalic = new XFont("sans-serif", 20, XFontStyle.Italic);
 
                 //Intento de coger y poner foto en el pdf 
@@ -95,7 +95,7 @@ namespace PdfSharp.Sample.Droid
                 {
                     image = XImage.FromStream(stream);
                 }
-                gfx.DrawImage(image, new XRect(new XPoint(30, 150), new XSize(300, 250)));
+                gfx.DrawImage(image, new XRect(new XPoint(10, 10), new XSize(100, 100)));
                 image.Dispose();
                 //XImage imageFrog = XImage.FromFile("C:/imagen.jpg");
 
@@ -106,12 +106,12 @@ namespace PdfSharp.Sample.Droid
                 const double dx = 250, dy = 140;
                 double width = img.PixelWidth * 72 / img.HorizontalResolution;
                 double height = img.PixelHeight * 72 / img.HorizontalResolution;
-                gfx.DrawImage(img, 30, 150, 300, 250);
+                //gfx.DrawImage(img, 30, 150, 300, 250);
 
                 //string logopath = Path.GetTempPath();
-                //'Determines what the path to the temp folder is and what the path to the image is (if it actually exists - see next step).
+                //Determines what the path to the temp folder is and what the path to the image is (if it actually exists - see next step).
                 //logopath = logopath + "frogs.jpg";
-                //'Checks to see if the file already exists in the Temp folder, if not, then it will create it.
+                //Checks to see if the file already exists in the Temp folder, if not, then it will create it.
 
 
                 //'Creates the xImage and sets the image's source to be the logo image that we just saved to the Temp folder
@@ -120,28 +120,56 @@ namespace PdfSharp.Sample.Droid
                 //gfx.DrawImage(imageFrog, 30, 150, 30, 150);
                 //Dibujo strings en el pdf con una separacion de 40
                 XPen pen = new XPen(XColors.Black, 9);
-                gfx.DrawString("Ejemplo de PDF primera linea", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 130);
-                gfx.DrawString("Ejemplo de PDF segunda linea", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 170);
-                gfx.DrawString("Ejemplo de PDF tercera linea", fontItalic, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 210);
-                gfx.DrawString("Ejemplo de PDF cuarta linea", font, new XSolidBrush(XColor.FromArgb(120, 0, 0)), 10, 250);
-                //gfx = XGraphics.FromPdfPage(page2, XGraphicsPdfPageOptions.Append);
-                //page2.Width = XUnit.FromMillimeter(210);
-                //page2.Height = XUnit.FromMillimeter(297);
-                
-                    XPen lineRed = new XPen(XColors.Red, 5);
-                    gfx.DrawLine(lineRed, 30, 300, 250, 300);
-                if (a.Count > 1)
-                    drawArrayString(font, 30, espacio + 80);
-                else
-                {
-                    drawString(textProva, font, 30, espacio + 40);
-                    gfx.DrawLine(XPens.Black, 30, 300, 30, page.Height);
-                    gfx.DrawLine(XPens.Black, 250, 300, 250, page.Height);
-                }
+                gfx.DrawString("EXPRESS TOUR, SA", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 130);
+                gfx.DrawString("EXPRESS FOOD, SA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 145);
+                gfx.DrawString("B1122334455", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 160);
+                gfx.DrawString("Avda. America 10", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 175);
+                gfx.DrawString("MATARÓ", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 190);
+                gfx.DrawString("BARCELONA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 205);
+                gfx.DrawString("937569330", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 220);
+                gfx.DrawString("info@expresstoursaa.com", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 235);
+
+                gfx.DrawString("FACTURA", fontBoldTitol, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 50);
+                gfx.DrawString("Nº factura / Fecha", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 65);
+                gfx.DrawString("FAC11 396 / 22-01-2018", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 80);
+                gfx.DrawString("Agente : Juan Antonio", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 95);
+                gfx.DrawString("10", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 125);
+                gfx.DrawString("THE SERVICE TOUR S.A.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 140);
+                gfx.DrawString("Servicios al viajero TST", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 155);
+                gfx.DrawString("9999999J", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 170);
+                gfx.DrawString("Paseig de Maragall, 140", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 185);
+                gfx.DrawString("08027 BARCELONA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 200);
+                gfx.DrawString("BARCELONA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 215);
+                gfx.DrawString("999999999", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 230);
+
+                //Strins de la tabla
+                gfx.DrawString("Producto", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 284);
+                gfx.DrawString("Descripción", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 79, 284);
+                gfx.DrawString("Ud Medida", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 280, 284);
+                gfx.DrawString("Cantidad", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 355, 284);
+                gfx.DrawString("Precio", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 418, 284);
+                gfx.DrawString("% Dto.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 477, 284);
+                gfx.DrawString("Subtotal", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 536, 284);
+
+                //Recuadro
+                XPen line = new XPen(XColors.Black, 1);
+                gfx.DrawLine(line, 10, 270, 600, 270);  //Línea superior
+                gfx.DrawLine(line, 10, 270, 10, 700);   //Línea izquierda
+                gfx.DrawLine(line, 10, 700, 600, 700);  //Línea inferior
+                gfx.DrawLine(line, 600, 700, 600, 270); //Línea derecha
+
+                //Líneas separatoreas
+                gfx.DrawLine(line, 10, 290, 600, 290);  //Línea horizontal1
+                gfx.DrawLine(line, 75, 270, 75, 700);   //Línea vertical1
+                gfx.DrawLine(line, 350, 270, 350, 700); //Línea vertical2
+                gfx.DrawLine(line, 410, 270, 410, 700); //Línea vertical3
+                gfx.DrawLine(line, 470, 270, 470, 700); //Línea vertical4
+                gfx.DrawLine(line, 530, 270, 530, 700); //Línea vertical5
+
                 //Metodo para pintar string en el archivo
                 void drawString(string text, XFont fuente, int x, int y)
                 {
-                    gfx.DrawString(page.Height.ToString(), fuente, new XSolidBrush(XColor.FromArgb(0, 0, 0)), x, y);
+                    gfx.DrawString(page.Width.ToString(), fuente, new XSolidBrush(XColor.FromArgb(0, 0, 0)), x, y);
                 }
                 //Metodo para pintar varios string de un arrylist
                 void drawArrayString(XFont fuente, int x, int y) {
