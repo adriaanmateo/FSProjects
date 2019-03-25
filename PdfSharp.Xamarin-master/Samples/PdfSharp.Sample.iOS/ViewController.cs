@@ -39,14 +39,14 @@ namespace PdfSharp.Sample.iOS
 
             var image = XImage.FromFile("frogs.jpg");
 
-            gfx.DrawImage(image, 10, 10, 100, 70);
+            gfx.DrawImage(image, 10, 10, 100, 100);
 
             gfx.DrawString("Test of PdfSharp on iOS", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 130);
 
             gfx.DrawString("Test of PdfSharp on iOS in bold", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 170);
 
             gfx.DrawString("Test of PdfSharp on iOS in italic", fontItalic, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 210);
-            XPen pen = new XPen(XColors.Black, 9);
+            XPen pen = new XPen(XColors.Black, 3);
             XPoint[] points =
              {
                  new XPoint(10,  10),
