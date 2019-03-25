@@ -40,7 +40,7 @@ namespace PdfSharp.Sample.iOS
 
             var image = XImage.FromFile("frogs.jpg");
 
-            gfx.DrawImage(image, 5, 10, 100, 100);
+            gfx.DrawImage(image, 10, 10, 100, 100);
 
             //Debajo de la imagen
             gfx.DrawString("EXPRESS TOUR, SA", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 130);
