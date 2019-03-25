@@ -46,6 +46,15 @@ namespace PdfSharp.Sample.iOS
             gfx.DrawString("Test of PdfSharp on iOS in bold", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 170);
 
             gfx.DrawString("Test of PdfSharp on iOS in italic", fontItalic, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 210);
+            XPen pen = new XPen(XColors.Black, 9);
+            XPoint[] points =
+             {
+                 new XPoint(10,  10),
+                 new XPoint(10, 100),
+                 new XPoint(200,  100),
+                 new XPoint(200, 10)
+             };
+            gfx.DrawLines(pen, points);
 
             var fileName = Path.Combine(Path.GetTempPath(), "test.pdf");
 
