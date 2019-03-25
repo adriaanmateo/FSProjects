@@ -84,6 +84,7 @@ namespace PdfSharp.Sample.Droid
                 //Declarar diferentes xfont
                 var font = new XFont("sans-serif", 12);
                 var fontBold = new XFont("sans-serif", 12, XFontStyle.Bold);
+                var fontBoldGran = new XFont("sans-serif", 14, XFontStyle.Bold);
                 var fontBoldTitol = new XFont("sans-serif", 20, XFontStyle.Bold);
                 var fontItalic = new XFont("sans-serif", 20, XFontStyle.Italic);
 
@@ -119,6 +120,11 @@ namespace PdfSharp.Sample.Droid
                 //gfx.DrawImage(logoimage, 60, 37, 40, 19);
                 //gfx.DrawImage(imageFrog, 30, 150, 30, 150);
                 //Dibujo strings en el pdf con una separacion de 40
+
+                XSolidBrush greyBrush = new XSolidBrush(XColor.FromGrayScale(20));
+                gfx.DrawRectangle(greyBrush, new XRect(new XPoint(10, 270), new XPoint(600, 290)));
+                gfx.DrawRectangle(greyBrush, new XRect(new XPoint(530, 730), new XPoint(600, 750)));
+
                 XPen pen = new XPen(XColors.Black, 9);
                 gfx.DrawString("EXPRESS TOUR, SA", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 130);
                 gfx.DrawString("EXPRESS FOOD, SA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 145);
@@ -142,7 +148,7 @@ namespace PdfSharp.Sample.Droid
                 gfx.DrawString("BARCELONA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 215);
                 gfx.DrawString("999999999", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 375, 230);
 
-                //Strins de la tabla
+                //Strings de la tabla
                 gfx.DrawString("Producto", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 284);
                 gfx.DrawString("Descripción", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 79, 284);
                 gfx.DrawString("Ud Medida", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 280, 284);
@@ -150,21 +156,30 @@ namespace PdfSharp.Sample.Droid
                 gfx.DrawString("Precio", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 418, 284);
                 gfx.DrawString("% Dto.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 477, 284);
                 gfx.DrawString("Subtotal", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 536, 284);
+                gfx.DrawString("UNIDADES", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 130, 683);
+                gfx.DrawString("Subtotal", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 683);
+                gfx.DrawString("Dto P.P.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 698);
+                gfx.DrawString("Base", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 713);
+                gfx.DrawString("IVA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 728);
+                gfx.DrawString("Forma de pago", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 730);
+                gfx.DrawString("Importe total", fontBoldGran, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 745);
 
                 //Recuadro
                 XPen line = new XPen(XColors.Black, 1);
                 gfx.DrawLine(line, 10, 270, 600, 270);  //Línea superior
-                gfx.DrawLine(line, 10, 270, 10, 700);   //Línea izquierda
-                gfx.DrawLine(line, 10, 700, 600, 700);  //Línea inferior
-                gfx.DrawLine(line, 600, 700, 600, 270); //Línea derecha
+                gfx.DrawLine(line, 10, 270, 10, 750);   //Línea izquierda
+                gfx.DrawLine(line, 10, 750, 600, 750);  //Línea inferior
+                gfx.DrawLine(line, 600, 750, 600, 270); //Línea derecha
 
                 //Líneas separatoreas
                 gfx.DrawLine(line, 10, 290, 600, 290);  //Línea horizontal1
-                gfx.DrawLine(line, 75, 270, 75, 700);   //Línea vertical1
-                gfx.DrawLine(line, 350, 270, 350, 700); //Línea vertical2
-                gfx.DrawLine(line, 410, 270, 410, 700); //Línea vertical3
-                gfx.DrawLine(line, 470, 270, 470, 700); //Línea vertical4
-                gfx.DrawLine(line, 530, 270, 530, 700); //Línea vertical5
+                gfx.DrawLine(line, 10, 670, 600, 670);  //Línea horizontal2
+                gfx.DrawLine(line, 530, 730, 600, 730);  //Línea horizontal2
+                gfx.DrawLine(line, 75, 270, 75, 670);   //Línea vertical1
+                gfx.DrawLine(line, 350, 270, 350, 670); //Línea vertical2
+                gfx.DrawLine(line, 410, 270, 410, 670); //Línea vertical3
+                gfx.DrawLine(line, 470, 270, 470, 670); //Línea vertical4
+                gfx.DrawLine(line, 530, 270, 530, 750); //Línea vertical5
 
                 //Metodo para pintar string en el archivo
                 void drawString(string text, XFont fuente, int x, int y)
