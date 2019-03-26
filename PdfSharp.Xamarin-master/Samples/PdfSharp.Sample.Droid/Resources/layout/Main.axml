@@ -8,7 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pedir texto" />
-		<Button
+	<Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Producto Nuevo" />
+	<Button
         android:id="@+id/MyButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

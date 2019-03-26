@@ -25,9 +25,9 @@ namespace PdfSharp.Sample.Droid
     public class MainActivity : AppCompatActivity
     {
         //Variables
-        static int espacio = 250;
         static string fileName = "";
         static string textProva = "";
+        static int contadorProductes = 0;
         static ArrayList a = new ArrayList();
 
         protected override void OnCreate(Bundle bundle)
@@ -40,6 +40,7 @@ namespace PdfSharp.Sample.Droid
             //Asignar id al button
             Button button = FindViewById<Button>(Resource.Id.MyButton);
             Button buttonGo = FindViewById<Button>(Resource.Id.button1);
+            Button buttonProducts = FindViewById<Button>(Resource.Id.button2);
             Button buttonText = FindViewById<Button>(Resource.Id.text2);
 
             //Asignar id al webview y configurarlo
@@ -66,6 +67,11 @@ namespace PdfSharp.Sample.Droid
                 });
                 Android.Support.V7.App.AlertDialog alertDShow = alertD.Create();
                 alertDShow.Show();
+            };
+
+            buttonProducts.Click += delegate
+            {
+                Product producto = new Product(contadorProductes);
             };
 
             ///Metodo onclick del button generar pdf
