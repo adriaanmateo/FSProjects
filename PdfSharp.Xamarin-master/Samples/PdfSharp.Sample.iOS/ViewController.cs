@@ -1,4 +1,12 @@
-﻿using Foundation;
+﻿/************************************************************************
+* ViewController.cs
+* Page: ViewController IOs
+* Autor: Adrian Mateo
+* Fecha: 26/03/2019
+* Copyright FarAndSoft S.L 2018
+*************************************************************************/
+
+using Foundation;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -39,9 +47,11 @@ namespace PdfSharp.Sample.iOS
             var fontItalic = new XFont("Helvetica", 12, XFontStyle.Italic);
 
             var image = XImage.FromFile("frogs.jpg");
-
+            XPen pen = new XPen(XColors.Black, 1);
             gfx.DrawImage(image, 10, 10, 100, 100);
+            XSolidBrush greyBrush = new XSolidBrush(XColor.FromGrayScale(20));
 
+            gfx.DrawRectangle(pen, greyBrush, new XRect(new XPoint(10, 250), (new XPoint(600, 280))));
             //Debajo de la imagen
             gfx.DrawString("EXPRESS TOUR, SA", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 130);
             gfx.DrawString("EXPRESS FOODS, SA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 145);
@@ -67,33 +77,43 @@ namespace PdfSharp.Sample.iOS
             gfx.DrawString("999999999", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 235);
 
             //Tabla
+            gfx.DrawString("Producto", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 274);
+            gfx.DrawString("Descripción", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 79, 274);
+            gfx.DrawString("Ud Medida", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 280, 274);
+            gfx.DrawString("Cantidad", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 355, 274);
+            gfx.DrawString("Precio", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 418, 274);
+            gfx.DrawString("% Dto.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 477, 274);
+            gfx.DrawString("Subtotal", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 536, 274);
+            gfx.DrawString("UNIDADES", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 130, 683);
+            gfx.DrawString("Subtotal", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 683);
+            gfx.DrawString("Dto P.P.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 698);
+            gfx.DrawString("Base", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 713);
+            gfx.DrawString("IVA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 728);
+            gfx.DrawString("Forma de pago", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 730);
+            gfx.DrawString("Importe total", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 745);
 
             //gfx.DrawString("Test of PdfSharp on iOS in italic", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 210);
-            XPen pen = new XPen(XColors.Black, 1);
-            //PRODUCTO
+
+            
             XPoint[] puntostabla =
              {
                  new XPoint(10,  250),
                  new XPoint(10, 750),
-                 new XPoint(602,  750),
-                 new XPoint(602, 250),
+                 new XPoint(600,  750),
+                 new XPoint(600, 250),
                  new XPoint(10, 250)
              };
             gfx.DrawLines(pen, puntostabla);
-            XSolidBrush greyBrush = new XSolidBrush(XColor.FromGrayScale(20));
-
-            gfx.DrawRectangle(greyBrush, new XRect(new XPoint(10, 250), (new XPoint(602, 280))));
-            //gfx.DrawLine(pen, new XPoint(10, 250), new XPoint(10, 750));
-            //TABLA
-            XPoint[] points =
-             {
-                 new XPoint(10,  250),
-                 new XPoint(10, 280),
-                 new XPoint(100,  280),
-                 new XPoint(100, 250),
-                 new XPoint(10, 250)
-             };
-            gfx.DrawLines(pen, points);
+            
+            
+            gfx.DrawLine(pen, 10, 280, 600, 280);  //Línea horizontal1
+            gfx.DrawLine(pen, 10, 670, 600, 670);  //Línea horizontal2
+            gfx.DrawLine(pen, 530, 730, 600, 730);  //Línea horizontal2
+            gfx.DrawLine(pen, 75, 250, 75, 670);   //Línea vertical1
+            gfx.DrawLine(pen, 350, 250, 350, 670); //Línea vertical2
+            gfx.DrawLine(pen, 410, 250, 410, 670); //Línea vertical3
+            gfx.DrawLine(pen, 470, 250, 470, 670); //Línea vertical4
+            gfx.DrawLine(pen, 530, 250, 530, 750); //Línea vertical5
 
             var fileName = Path.Combine(Path.GetTempPath(), "test.pdf");
 
