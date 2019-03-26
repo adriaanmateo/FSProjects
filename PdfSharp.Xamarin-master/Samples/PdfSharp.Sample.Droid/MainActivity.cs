@@ -18,6 +18,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using System.Reflection;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace PdfSharp.Sample.Droid
 {
@@ -29,6 +30,7 @@ namespace PdfSharp.Sample.Droid
         static string textProva = "";
         static int contadorProductes = 0;
         static ArrayList a = new ArrayList();
+        static List<Product> productos = new List<Product>();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -72,6 +74,8 @@ namespace PdfSharp.Sample.Droid
             buttonProducts.Click += delegate
             {
                 Product producto = new Product(contadorProductes);
+                productos.Add(producto);
+                contadorProductes++;
             };
 
             ///Metodo onclick del button generar pdf
@@ -185,6 +189,27 @@ namespace PdfSharp.Sample.Droid
                 gfx.DrawLine(line, 410, 270, 410, 670); //Línea vertical3
                 gfx.DrawLine(line, 470, 270, 470, 670); //Línea vertical4
                 gfx.DrawLine(line, 530, 270, 530, 750); //Línea vertical5
+
+                int linea = 300;
+                foreach (Product a in productos)
+                {
+                    string nombre = a.getNombre();
+                    string descripcion = a.getDescripcion();
+                    string unidadMedia = a.getUnidadMedia().ToString();
+                    string cantidad = a.getCantidad().ToString();
+                    string precio = a.getPrecio().ToString();
+                    string descuento = a.getDescuento().ToString();
+                    string subtotal = a.getSubtotal().ToString();
+
+                    gfx.DrawString(nombre, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, linea);
+                    gfx.DrawString(descripcion, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 79, linea);
+                    gfx.DrawString(unidadMedia, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 280, linea);
+                    gfx.DrawString(cantidad, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 355, linea);
+                    gfx.DrawString(precio, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 418, linea);
+                    gfx.DrawString(descuento, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 477, linea);
+                    gfx.DrawString(subtotal, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 536, linea);
+                    linea = linea+15;
+                }
 
                 //Metodo para pintar varios string de un arrylist
                 void drawArrayString(XFont fuente, int x, int y) {
