@@ -1,7 +1,7 @@
 ﻿/************************************************************************
 * MainActivity.cs
 * Page: MainActivity Android
-* Autor: Adrian Mateo
+* Autor: Adrian Mateo i Adrià Mestres
 * Fecha: 18/03/2019
 * Copyright FarAndSoft S.L 2018
 *************************************************************************/
