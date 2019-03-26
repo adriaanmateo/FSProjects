@@ -14,18 +14,58 @@ namespace PdfSharp.Sample.Droid
 {
     class Product
     {
-        string name;
-        string descripcion;
-        float unidadMedia;
-        int cantidad;
-        float precio;
-        float descuento;
-        float subtotal;
+        public string nombre;
+        public string descripcion;
+        public double unidadMedia;
+        public int cantidad;
+        public double precio;
+        public double descuento;
+        public double subtotal;
 
         public Product(int contador)
         {
-            this.name = "Producto" + contador;
+            this.nombre = "Producto" + contador;
             this.descripcion = "Descripcion" + contador;
+            this.unidadMedia = contador + 1.27;
+            this.cantidad = contador + 2;
+            this.precio = contador + 3;
+            this.descuento = 10.5;
+            this.subtotal = contador + 20;
+        }
+
+        public string getNombre()
+        {
+            return nombre;
+        }
+
+        public string getDescripcion()
+        {
+            return descripcion;
+        }
+
+        public double getUnidadMedia()
+        {
+            return unidadMedia;
+        }
+
+        public int getCantidad()
+        {
+            return cantidad;
+        }
+
+        public double getPrecio()
+        {
+            return precio;
+        }
+
+        public double getDescuento()
+        {
+            return descuento;
+        }
+
+        public double getSubtotal()
+        {
+            return subtotal;
         }
     }
 }
