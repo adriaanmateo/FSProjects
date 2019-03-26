@@ -56,8 +56,7 @@ namespace PdfSharp.Sample.Droid
                 Android.Support.V7.App.AlertDialog.Builder alertD = new Android.Support.V7.App.AlertDialog.Builder(this);
                 alertD.SetView(androidv);
                 var textoUser = androidv.FindViewById<EditText>(Resource.Id.text);
-                alertD.SetCancelable(false)
-                .SetPositiveButton("Enviar", delegate
+                alertD.SetCancelable(false).SetPositiveButton("Enviar", delegate
                 {
                     textProva = textoUser.Text;
                     a.Add(textProva);
@@ -181,11 +180,6 @@ namespace PdfSharp.Sample.Droid
                 gfx.DrawLine(line, 470, 270, 470, 670); //Línea vertical4
                 gfx.DrawLine(line, 530, 270, 530, 750); //Línea vertical5
 
-                //Metodo para pintar string en el archivo
-                void drawString(string text, XFont fuente, int x, int y)
-                {
-                    gfx.DrawString(page.Width.ToString(), fuente, new XSolidBrush(XColor.FromArgb(0, 0, 0)), x, y);
-                }
                 //Metodo para pintar varios string de un arrylist
                 void drawArrayString(XFont fuente, int x, int y) {
                     //Punto de pintado en la segunda pagina
@@ -221,6 +215,7 @@ namespace PdfSharp.Sample.Droid
                 document.Save(fileName);
                 //File.Open(fileName, FileMode.Open);
             };
+
             //Onclick para abrir la webview
             buttonGo.Click += delegate
             {
