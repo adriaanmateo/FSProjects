@@ -18,6 +18,10 @@ namespace PdfSharp.Sample.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIWebView pdfView { get; set; }
 
+        [Action ("agregar:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void agregar (UIKit.UIButton sender);
+
         [Action ("UIButton3_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton3_TouchUpInside (UIKit.UIButton sender);

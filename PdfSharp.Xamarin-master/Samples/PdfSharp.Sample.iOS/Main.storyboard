@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3">
-                                <rect key="frame" x="146" y="75" width="122" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3" misplaced="YES" horizontalHuggingPriority="262">
+                                <rect key="frame" x="63" y="72" width="122" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="6"/>
                                 </constraints>
@@ -33,6 +33,20 @@
                                 <rect key="frame" x="20" y="129" width="374" height="587"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="265" misplaced="YES" ambiguous="YES" horizontalHuggingPriority="242" verticalHuggingPriority="251" verticalCompressionResistancePriority="693" placeholderIntrinsicHeight="infinite" placeholderIntrinsicWidth="infinite">
+                                <rect key="frame" x="223" y="71" width="136" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="268"/>
+                                </constraints>
+                                <state key="normal" title="Generate Product">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="UIButton3_TouchUpInside:" destination="267" eventType="touchUpInside" id="266"/>
+                                    <action selector="agregar:" destination="BYZ-38-t0r" id="287"/>
+                                    <action selector="agregar:" destination="BYZ-38-t0r" id="288" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
