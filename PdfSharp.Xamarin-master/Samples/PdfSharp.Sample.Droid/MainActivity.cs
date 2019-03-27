@@ -174,7 +174,7 @@ namespace PdfSharp.Sample.Droid
                 gfx.DrawString("Importe total", fontBoldGran, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 745);
 
                 //Recuadro
-                XPen line = new XPen(XColors.Black, 1);
+                XPen line = new XPen(XColors.Black, 1); 
                 gfx.DrawLine(line, 10, 270, 600, 270);  //Línea superior
                 gfx.DrawLine(line, 10, 270, 10, 750);   //Línea izquierda
                 gfx.DrawLine(line, 10, 750, 600, 750);  //Línea inferior
@@ -183,7 +183,7 @@ namespace PdfSharp.Sample.Droid
                 //Líneas separatoreas
                 gfx.DrawLine(line, 10, 290, 600, 290);  //Línea horizontal1
                 gfx.DrawLine(line, 10, 670, 600, 670);  //Línea horizontal2
-                gfx.DrawLine(line, 530, 730, 600, 730);  //Línea horizontal2
+                gfx.DrawLine(line, 530, 730, 600, 730);   //Línea horizontal2
                 gfx.DrawLine(line, 75, 270, 75, 670);   //Línea vertical1
                 gfx.DrawLine(line, 350, 270, 350, 670); //Línea vertical2
                 gfx.DrawLine(line, 410, 270, 410, 670); //Línea vertical3
