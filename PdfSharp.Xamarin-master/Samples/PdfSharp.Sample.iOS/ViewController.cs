@@ -10,6 +10,7 @@ using Foundation;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
+using System.Collections;
 using System.IO;
 using UIKit;
 
@@ -17,6 +18,8 @@ namespace PdfSharp.Sample.iOS
 {
     public partial class ViewController : UIViewController
     {
+        static ArrayList products = new ArrayList();
+
         public ViewController(IntPtr handle) : base(handle)
         {
         }
@@ -34,7 +37,9 @@ namespace PdfSharp.Sample.iOS
         }
         partial void agregar(UIButton sender)
         {
-            ShowToast("Prova", View);
+            FSProductos producto = new FSProductos("A100400", "Queso", "Unidades", 10.00, 2.99, 5.00, 35.88);
+            products.Add(producto);
+            ShowToast("Producte afegit", View);
         }
         public void ShowToast(String message, UIView view)
         {
@@ -115,7 +120,7 @@ namespace PdfSharp.Sample.iOS
             gfx.DrawString("Dto P.P.", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 698);
             gfx.DrawString("Base", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 713);
             gfx.DrawString("IVA", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 728);
-            gfx.DrawString("Forma de pago", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 730);
+            gfx.DrawString("Forma de pago", fontBold, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, 735);
             gfx.DrawString("Importe total", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 350, 745);
 
             //gfx.DrawString("Test of PdfSharp on iOS in italic", font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 10, 210);
@@ -140,6 +145,27 @@ namespace PdfSharp.Sample.iOS
             gfx.DrawLine(pen, 410, 250, 410, 670); //Línea vertical3
             gfx.DrawLine(pen, 470, 250, 470, 670); //Línea vertical4
             gfx.DrawLine(pen, 530, 250, 530, 750); //Línea vertical5
+            int linea = 300;
+            foreach (FSProductos a in products)
+            {
+                string nombre = a.getProducto();
+                string descripcion = a.getDescripcion();
+                string unidadMedia = a.getUnidadMedia().ToString();
+                string cantidad = a.getCantidad().ToString();
+                string precio = a.getPrecio().ToString();
+                string descuento = a.getDescuento().ToString();
+                string subtotal = a.getSubtotal().ToString();
+
+                gfx.DrawString(nombre, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 14, linea);
+                gfx.DrawString(descripcion, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 79, linea);
+                gfx.DrawString(unidadMedia, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 280, linea);
+                gfx.DrawString(cantidad, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 355, linea);
+                gfx.DrawString(precio, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 418, linea);
+                gfx.DrawString(descuento, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 477, linea);
+                gfx.DrawString(subtotal, font, new XSolidBrush(XColor.FromArgb(0, 0, 0)), 536, linea);
+                linea = linea + 15;
+            }
+
 
             var fileName = Path.Combine(Path.GetTempPath(), "test.pdf");
 

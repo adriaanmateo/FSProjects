@@ -10,15 +10,15 @@ namespace PdfSharp.Sample.iOS
 {
     class FSProductos
     {
-        private string producto { get; set; }
-        private string descripcion { get; set; }
-        private string udMedida { get; set; }
-        private float cantidad { get; set; }
-        private float precio { get; set; }
-        private float descuento { get; set; }
-        private float subtotal { get; set; }
+        private string producto;
+        private string descripcion;
+        private string udMedida;
+        private double cantidad;
+        private double precio;
+        private double descuento;
+        private double subtotal;
 
-        public FSProductos(string producto, string descripcion, string udMedida, float cantidad, float precio, float descuento, float subtotal)
+        public FSProductos(string producto, string descripcion, string udMedida, double cantidad, double precio, double descuento, double subtotal)
         {
             this.producto = producto;
             this.descripcion = descripcion;
@@ -27,6 +27,41 @@ namespace PdfSharp.Sample.iOS
             this.precio = precio;
             this.descuento = descuento;
             this.subtotal = subtotal;
+        }
+
+        public string getProducto()
+        {
+            return producto;
+        }
+
+        public string getDescripcion()
+        {
+            return descripcion;
+        }
+
+        public string getUnidadMedia()
+        {
+            return udMedida;
+        }
+
+        public double getCantidad()
+        {
+            return cantidad;
+        }
+
+        public double getPrecio()
+        {
+            return precio;
+        }
+
+        public double getDescuento()
+        {
+            return descuento;
+        }
+
+        public double getSubtotal()
+        {
+            return subtotal;
         }
     }
 }
